@@ -1,6 +1,7 @@
 # MCP·플러그인·CLI 연결
 
 연결 상태는 세션마다 다릅니다. 지난번에 연결됐다는 기억만 믿지 말고 작업을 시작할 때 다시 확인합니다.
+도구 설치와 버전은 [ENVIRONMENT.md](ENVIRONMENT.md), 한 번에 점검은 `tools/doctor.sh`입니다.
 
 ## Claude Code
 

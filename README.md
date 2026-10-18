@@ -51,18 +51,25 @@ Claude Code를 이 폴더에서 열고 평소 말로 요청합니다.
    tools/check-structure.sh
    ```
 
-2. [Claude Code](https://code.claude.com/docs)로 이 폴더를 열고 `/mcp`에서 `notion` 연결(OAuth)을 마칩니다. 교차검토까지 쓰려면 [Codex CLI](https://developers.openai.com/codex)도 설치합니다.
-3. [SETUP.md](SETUP.md)를 엽니다. 학교 LMS, 자료 폴더, 수강 과목, Notion 페이지, 말투를 표에 적습니다. 모르는 칸은 비워 둬도 됩니다.
-4. Claude Code에 이렇게 말합니다.
+2. [Claude Code](https://code.claude.com/docs)로 이 폴더를 열고 `/mcp`에서 `notion` 연결(OAuth)을 마칩니다.
+3. 나머지 도구(MarkItDown CLI, poppler, uv, Codex CLI, Notion CLI, Playwright MCP, ffmpeg)는 LLM이 작성자 환경 목록을 보고 설치하고 버전을 확인해 줍니다. 목록과 설치 명령은 [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md)에 있습니다.
+
+   ```text
+   docs/ENVIRONMENT.md를 읽고 tools/doctor.sh로 내 컴퓨터를 확인해줘.
+   빠진 것만 하나씩 설치해줘. sudo, 원격 설치 스크립트, 전역 패키지 설치, 로그인은 실행 전에 보여주고 내가 승인하면 실행해줘.
+   ```
+
+4. [SETUP.md](SETUP.md)를 엽니다. 학교 LMS, 자료 폴더, 수강 과목, Notion 페이지, 말투를 표에 적습니다. 모르는 칸은 비워 둬도 됩니다.
+5. Claude Code에 이렇게 말합니다.
 
    ```text
    SETUP.md를 읽고 adapt-to-my-setup 스킬로 이 저장소를 내 상황에 맞게 고쳐줘.
    Notion에는 아직 쓰지 말고, 바꿀 파일 목록부터 보여줘.
    ```
 
-5. 과목마다 Notion에 `AI 활용 문서`가 있어야 합니다. 없으면 [templates/ai-usage-doc.md](templates/ai-usage-doc.md) 양식으로 먼저 만듭니다. 질문에 답하면 LLM이 채워 주는 프롬프트는 [CUSTOMIZE.md](docs/CUSTOMIZE.md#과목-ai-활용-문서-만들기)에 있습니다.
-6. `map-notion-workspace 스킬로 내 학업 페이지를 읽기 전용으로 매핑해줘`라고 하면 Notion 페이지·DB ID가 [workspace-map.md](.claude/memory/workspace-map.md)에 채워집니다.
-7. 강의 하나로 먼저 돌려 봅니다.
+6. 과목마다 Notion에 `AI 활용 문서`가 있어야 합니다. 없으면 [templates/ai-usage-doc.md](templates/ai-usage-doc.md) 양식으로 먼저 만듭니다. 질문에 답하면 LLM이 채워 주는 프롬프트는 [CUSTOMIZE.md](docs/CUSTOMIZE.md#과목-ai-활용-문서-만들기)에 있습니다.
+7. `map-notion-workspace 스킬로 내 학업 페이지를 읽기 전용으로 매핑해줘`라고 하면 Notion 페이지·DB ID가 [workspace-map.md](.claude/memory/workspace-map.md)에 채워집니다.
+8. 강의 하나로 먼저 돌려 봅니다.
 
 ## 내 상황에 맞추기
 
@@ -100,7 +107,7 @@ LLM에게 맡기지 않고 직접 고치고 싶다면 [docs/CUSTOMIZE.md](docs/C
 │   └── memory/       Notion ID, 반복 작업 계약, 결정 기록 (처음엔 빈 템플릿)
 ├── .codex/           Codex 설정. skills·rules·memory는 .claude를 가리키는 링크
 ├── templates/        계획, 검토 패킷, AI 활용 문서, 강의 다운로드 스킬 양식
-├── tools/            게시 전 린터, 구조 검사, 영상→mp3, Whisper 전사
+├── tools/            게시 전 린터, 구조·환경 검사, 영상→mp3, Whisper 전사
 ├── docs/             맞추기 안내, 구조 자세히, Notion CLI, 연결 방법
 ├── examples/         공통 말투 블록 예시
 └── materials/        강의자료·녹음·캡처를 넣는 곳 (git에 안 올라감)
@@ -121,6 +128,7 @@ Windows에서 받으면 `.codex/`의 심볼릭 링크가 일반 파일로 풀릴
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 파일·스킬·Notion 문서가 서로 어떻게 연결되는지 그림과 표 |
 | [docs/CUSTOMIZE.md](docs/CUSTOMIZE.md) | 파일별로 바꿀 곳, LLM에게 줄 프롬프트 |
 | [docs/NOTION-CLI.md](docs/NOTION-CLI.md) | `ntn` 활용 |
+| [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) | 작성자와 같은 도구·버전, 설치 명령, `tools/doctor.sh` |
 | [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) | MCP·플러그인·Codex 연결 방법 |
 
 ## 알려진 한계

@@ -14,6 +14,16 @@ Notion에는 아직 쓰지 말고, 바꿀 파일 목록부터 보여줘.
 
 <!-- 각 칸의 예시는 작성자 상황입니다. 지우고 내 값을 적으면 됩니다. -->
 
+## 0. 작업 환경
+
+먼저 [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md)의 프롬프트로 도구를 깔고 `tools/doctor.sh`가 `required tools present`로 끝나는지 확인합니다.
+작성자와 다른 OS·버전을 쓰면 여기에 적습니다.
+
+| 항목 | 내 값 | 예시 |
+|---|---|---|
+| OS | | Windows + WSL2 Ubuntu |
+| 설치하지 않을 도구 | | Codex CLI(교차검토는 Claude 자체 검토로) |
+
 ## 1. 학교와 강의 사이트
 
 | 항목 | 내 값 | 예시 |

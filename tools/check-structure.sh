@@ -43,6 +43,8 @@ templates/daily-log.md
 SETUP.md
 docs/CUSTOMIZE.md
 docs/NOTION-CLI.md
+docs/ENVIRONMENT.md
+tools/doctor.sh
 .claude/skills/adapt-to-my-setup/SKILL.md
 templates/ai-usage-doc.md
 templates/lecture-download-skill.md
