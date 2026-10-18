@@ -1,0 +1,39 @@
+.env
+.env.*
+!.env.example
+CLAUDE.local.md
+.claude/settings.local.json
+plans/tmp/
+*.log
+.DS_Store
+ 
+# 강의 원본·추출문·캡처는 로컬 작업물이다. index와 폴더 골격만 추적한다.
+materials/inbox/*
+!materials/inbox/.gitkeep
+materials/guides/original/*
+!materials/guides/original/.gitkeep
+materials/guides/extracted/*
+!materials/guides/extracted/.gitkeep
+materials/courses/*/source/*
+materials/courses/*/extracted/*
+materials/courses/*/captures/*
+materials/courses/*/video/*
+materials/courses/*/audio/*
+materials/courses/*/transcripts/*
+materials/courses/*/render/*
+materials/courses/*/captures?*/*
+materials/courses/*/render?*/*
+!materials/courses/_template/source/.gitkeep
+!materials/courses/_template/extracted/.gitkeep
+!materials/courses/_template/captures/.gitkeep
+!materials/courses/_template/video/.gitkeep
+!materials/courses/_template/audio/.gitkeep
+!materials/courses/_template/transcripts/.gitkeep
+
+# Playwright MCP 스냅샷·스크린샷 (페이지 내용·개인정보 포함 가능)
+.playwright-mcp/
+__pycache__/
+
+# 패치 백업·잠금 파일
+*.orig
+*.lock

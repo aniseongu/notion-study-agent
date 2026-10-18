@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
+    },
+    "markitdown": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "markitdown-mcp==0.0.1a7",
+        "markitdown-mcp"
+      ]
+    },
+    "pdf": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--silent",
+        "--registry=https://registry.npmjs.org/",
+        "@modelcontextprotocol/server-pdf@2.0.3",
+        "--stdio",
+        "./materials"
+      ]
+    }
+  }
+}
