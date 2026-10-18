@@ -4,13 +4,12 @@
 
 ## Claude Code
 
-루트 [.mcp.json](../.mcp.json)이 프로젝트 공용 MCP 세 개를 선언합니다.
+루트 [.mcp.json](../.mcp.json)이 프로젝트 공용 MCP 두 개를 선언합니다.
 
 | 서버 | 쓰는 곳 |
 |---|---|
 | `notion` (`https://mcp.notion.com/mcp`) | Notion 읽기·쓰기. OAuth라 토큰을 파일에 둘 필요가 없음 |
-| `markitdown` | 문서 → 검색용 Markdown. 시각 판단의 근거로 쓰지 않음 |
-| `pdf` | `./materials` 아래 PDF의 쪽 검색·스크린샷 |
+| `pdf` | `./materials` 아래 PDF의 쪽 검색·스크린샷. 이 폴더 밖은 열지 않음 |
 
 ```bash
 claude mcp list
@@ -20,7 +19,9 @@ claude mcp get notion
 처음 열 때 `.mcp.json` 서버를 승인하고 `/mcp`에서 `notion` OAuth를 마칩니다. 같은 프로젝트에서 Claude Code 세션을 여러 개
 동시에 시작하면 OAuth 갱신이 충돌할 수 있으니 하나씩 여세요.
 
-MarkItDown은 MCP보다 CLI가 토큰을 덜 씁니다: `markitdown <파일> -o <out.md>` (`uv tool install 'markitdown[pdf,docx,pptx,xlsx]'`).
+MarkItDown은 **CLI로만** 씁니다: `markitdown <파일> -o <out.md>` (`uv tool install 'markitdown[pdf,docx,pptx,xlsx]'`).
+MarkItDown MCP 서버는 `file:`·`http(s):` 주소를 아무거나 읽을 수 있어, 강의자료나 웹페이지에 숨은 지시문이 로컬 파일을 읽어 밖으로
+보내게 만들 수 있습니다. 그래서 `.mcp.json`에 넣지 않았습니다. CLI는 내가 지정한 파일만 변환합니다.
 
 ## Codex
 
