@@ -64,7 +64,8 @@ def lint(name, t):
             errs.append(f'{name}:{ln}: {msg}  «{m.group(0)[:40]}»')
     if t.count('```') % 2: errs.append(f'{name}: 코드 펜스(```) 개수가 홀수')
     if len(re.findall(r'(?m)^\s*\$\$\s*$', t)) % 2: errs.append(f'{name}: 블록 수식 $$ 개수가 홀수')
-    if re.search(r'\[\[(?!CAPTURE|PROBLEMS|PAGE|VIEW)', t): errs.append(f'{name}: 알 수 없는 [[자리표시]]')
+    # NumPy·Pandas 코드의 a[[0, 2]]·df[['열']]은 자리표시가 아니므로 코드 제거본에서 검사
+    if re.search(r'\[\[(?!CAPTURE|PROBLEMS|PAGE|VIEW)', strip_code(t)): errs.append(f'{name}: 알 수 없는 [[자리표시]]')
     # 토글 구조: 여닫는 수가 같고, 각 <details …> 줄 바로 다음 줄이 <summary>…</summary>, 그다음 자식은 탭 들여쓰기
     plain = re.sub(r'```.*?```', '', t, flags=re.S)
     opens = re.findall(r'<details\b', plain); closes = re.findall(r'</details>', plain)
